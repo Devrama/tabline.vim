@@ -30,6 +30,33 @@ function! Tabline()
     let s .= ' ' . tab .':'
     let s .= (bufname != '' ? '['. fnamemodify(bufname, ':t') . '] ' : '[No Name] ')
 
+
+
+    let win = ''
+    let nerd = ''
+    let quickfix = ''
+    for bufnr2 in buflist
+      let bufname2 = bufname(bufnr2)
+      if bufname2 =~ 'NERD_tree'
+        let nerd .= 'Ntree'
+      endif
+      if bufname2 == ''
+        let quickfix .= 'Q'
+      endif
+      if bufname2 !~ 'NERD_tree' && bufname2 !~ 'Tagbar' && bufname2 != ''
+        let win .= '#'
+      endif
+    endfor
+
+    if strlen(win) > 1 || strlen(nerd) > 0 || strlen(quickfix) > 0
+      let s .= '{'
+      let s .= nerd
+      let s .= quickfix
+      let s .= win
+      let s .= '}'
+    endif
+
+
     if bufmodified
       let s .= '[+] '
     endif
