@@ -10,6 +10,9 @@ Configure tab labels within Terminal Vim with a very succinct output.
 - Tab number
 - Filename (basename only)
 - [+] if the current buffer has been modified
+- If multiple windows exist in a tab, tabline will be shown with {##} which # indicates a window. So, ## means two windows.
+- If Nerdtree is open in a tab, tabline will be shown with {N#} which `N` indicates a Nerdtree.
+- If Quickfix is open in a tab, tabline will be shown with {Q#} which `Q` indicates a quickfix.
 
 Tabs in this case, refer to Vim Tabs and not the Terminal.app tabs.
 
@@ -30,7 +33,7 @@ git clone git://github.com/mkitt/tabline.vim.git
 Currently there are no configuration variables to define, you either
 rock it or you don't. This may change at some point in the future.
 
-Make sure to set the following settings within your color theme: 
+Make sure to set the following settings within your color theme:
 
 ```
 hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
@@ -42,6 +45,8 @@ To enable the close button in the upper right corner, add the following to your 
 ```
 let g:tablineclosebutton=1
 ```
+
+
 
 
 [mkitt.net][mkitt.net] | [github/mkitt][github]
