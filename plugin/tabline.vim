@@ -38,7 +38,7 @@ function! Tabline()
     for bufnr2 in buflist
       let bufname2 = bufname(bufnr2)
       if bufname2 =~ 'NERD_tree'
-        let nerd .= 'Ntree'
+        let nerd .= 'N'
       endif
       if bufname2 == ''
         let quickfix .= 'Q'
